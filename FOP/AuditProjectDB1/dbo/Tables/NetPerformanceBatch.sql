@@ -1,13 +1,14 @@
 ﻿CREATE TABLE [dbo].[NetPerformanceBatch] (
-    [EntityID]                   INT              NOT NULL,
+    [ID]                         INT              IDENTITY (1, 1) NOT NULL,
+    [EntityID]                   INT              NULL,
     [EntityName]                 VARCHAR (MAX)    NULL,
     [GroupName]                  VARCHAR (MAX)    NULL,
     [Benchmark]                  VARCHAR (MAX)    NULL,
-    [PeriodBeginningMarketValue] DECIMAL (32, 18) NULL,
-    [PeriodEndingMarketValue]    DECIMAL (32, 18) NULL,
+    [PeriodBeginningMarketValue] VARCHAR (MAX)    NULL,
+    [PeriodEndingMarketValue]    VARCHAR (MAX)    NULL,
     [PeriodPerformance]          VARCHAR (MAX)    NULL,
     [EntityPath]                 VARCHAR (MAX)    NULL,
     [UploadID]                   UNIQUEIDENTIFIER NULL,
-    CONSTRAINT [PK_Table4] PRIMARY KEY CLUSTERED ([EntityID] ASC)
+    CONSTRAINT [PK_NetPerformanceBatch] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
 

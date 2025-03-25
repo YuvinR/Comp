@@ -1,4 +1,5 @@
 ﻿CREATE TABLE [dbo].[AllMaster] (
+    [ID]                         INT              IDENTITY (1, 1) NOT NULL,
     [EntityID]                   INT              NOT NULL,
     [AccountNumber]              VARCHAR (MAX)    NULL,
     [StartDate]                  DATETIME         NULL,
@@ -24,8 +25,10 @@
     [ExclusionType]              VARCHAR (5)      NULL,
     [NoCompositeType]            INT              NULL,
     [UploadID]                   UNIQUEIDENTIFIER NULL,
-    CONSTRAINT [PK_AllMaster] PRIMARY KEY CLUSTERED ([EntityID] ASC)
+    CONSTRAINT [PK_AllMaster] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
+
+
 
 
 

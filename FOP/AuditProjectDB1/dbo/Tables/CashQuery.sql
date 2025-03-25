@@ -1,5 +1,6 @@
 ﻿CREATE TABLE [dbo].[CashQuery] (
-    [RegistrationID]               INT              NOT NULL,
+    [ID]                           INT              IDENTITY (1, 1) NOT NULL,
+    [RegistrationID]               INT              NULL,
     [ClientLastName]               VARCHAR (MAX)    NULL,
     [RegistrationName]             VARCHAR (MAX)    NULL,
     [RegistrationCode]             VARCHAR (50)     NULL,
@@ -10,6 +11,6 @@
     [RepNo]                        VARCHAR (MAX)    NULL,
     [SleeveStrategy]               VARCHAR (MAX)    NULL,
     [UploadID]                     UNIQUEIDENTIFIER NULL,
-    CONSTRAINT [PK_CashQuery_10154] PRIMARY KEY CLUSTERED ([RegistrationID] ASC)
+    CONSTRAINT [PK_CashQuery] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
 

@@ -1,4 +1,5 @@
 ﻿CREATE TABLE [dbo].[GrossPerformanceBatch] (
+    [ID]                         INT              IDENTITY (1, 1) NOT NULL,
     [EntityID]                   INT              NOT NULL,
     [EntityName]                 VARCHAR (MAX)    NULL,
     [GroupName]                  VARCHAR (MAX)    NULL,
@@ -8,8 +9,10 @@
     [PeriodPerformance]          VARCHAR (MAX)    NULL,
     [EntityPath]                 VARCHAR (MAX)    NULL,
     [UploadID]                   UNIQUEIDENTIFIER NULL,
-    CONSTRAINT [PK_GPB] PRIMARY KEY CLUSTERED ([EntityID] ASC)
+    CONSTRAINT [PK_GrossPerformanceBatch] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
+
+
 
 
 GO

@@ -1,4 +1,5 @@
 ﻿CREATE TABLE [dbo].[PortfolioAuditRegistrations] (
+    [ID]                     INT              IDENTITY (1, 1) NOT NULL,
     [RegistrationID]         INT              NOT NULL,
     [Active]                 VARCHAR (50)     NULL,
     [LastName]               VARCHAR (MAX)    NULL,
@@ -15,6 +16,6 @@
     [UMA]                    VARCHAR (50)     NULL,
     [CustodialAccountNumber] VARCHAR (MAX)    NULL,
     [UploadID]               UNIQUEIDENTIFIER NULL,
-    CONSTRAINT [PK_PortfolioAuditRegistrations] PRIMARY KEY CLUSTERED ([RegistrationID] ASC)
+    CONSTRAINT [PK_PortfolioAuditRegistrations] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
 
