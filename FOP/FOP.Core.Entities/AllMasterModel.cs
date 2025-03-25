@@ -11,7 +11,9 @@ namespace FOP.Core.Entities
     [Table("AllMaster", Schema = "dbo")]
     public class AllMasterModel
     {
-        [Key]public int EntityID { get; set; }
+        [Key] public int ID { get; set; }
+
+        public int EntityID { get; set; }
         public string? AccountNumber { get; set; }
         public DateTime? StartDate { get; set; }
         public string? SleeveStrategy { get; set; }

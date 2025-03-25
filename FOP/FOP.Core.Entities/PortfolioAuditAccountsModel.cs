@@ -11,7 +11,9 @@ namespace FOP.Core.Entities
     [Table("PortfolioAuditAccounts", Schema = "dbo")]
     public class PortfolioAuditAccountsModel
     {
-        [Key] public int? AccountID { get; set; } 
+        [Key] public int ID { get; set; }
+
+        public int? AccountID { get; set; } 
 
         public bool? Active { get; set; } 
 

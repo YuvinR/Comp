@@ -11,7 +11,8 @@ namespace FOP.Core.Entities
     [Table("ModelChanges", Schema = "dbo")]
     public class ModelChangesModel
     {
-        [Key] public int OrionRegistrationId { get; set; }
+        [Key] public int ID { get; set; }
+        public int OrionRegistrationId { get; set; }
         public string? AccountNumber { get; set; }
         public DateTime? GoDate { get; set; }
         public DateTime? CloseDate { get; set; }

@@ -6,7 +6,8 @@ namespace FOP.Core.Entities
     [Table("GrossPerformanceBatch", Schema = "dbo")]
     public class GrossPerformanceBatchModel
     {
-        [Key] public int EntityID { get; set; }
+        [Key] public int ID { get; set; }
+        public int EntityID { get; set; }
         public string? EntityName { get; set; }
         public string? GroupName { get; set; }
         public string? Benchmark { get; set; }

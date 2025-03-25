@@ -9,7 +9,8 @@ namespace FOP.Core.Entities
 {
     public class SleevedRegistrationsContributionsModel
     {
-        [Key] public Guid Id { get; set; }
+        public Guid Id { get; set; }
+
         public int? HHID { get; set; } 
 
         public int RegID { get; set; } 

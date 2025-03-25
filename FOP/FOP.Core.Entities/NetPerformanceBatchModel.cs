@@ -7,7 +7,9 @@ namespace FOP.Core.Entities
     [Table("NetPerformanceBatch", Schema = "dbo")]
     public class NetPerformanceBatchModel
     {
-        [Key] public int EntityID { get; set; } 
+        [Key] public int ID { get; set; }
+
+        public int? EntityID { get; set; } 
 
         public string? EntityName { get; set; }
 
@@ -15,13 +17,13 @@ namespace FOP.Core.Entities
 
         public string? Benchmark { get; set; }
 
-        [Column(TypeName = "decimal(32, 18)")]
-        public decimal? PeriodBeginningMarketValue { get; set; }
+        //[Column(TypeName = "decimal(32, 18)")]
+        public string? PeriodBeginningMarketValue { get; set; }
 
-        [Column(TypeName = "decimal(32, 18)")]
-        public decimal? PeriodEndingMarketValue { get; set; }
+        //[Column(TypeName = "decimal(32, 18)")]
+        public string? PeriodEndingMarketValue { get; set; }
 
-        public string PeriodPerformance { get; set; }
+        public string? PeriodPerformance { get; set; }
         
         public string? EntityPath { get; set; } 
 

@@ -147,23 +147,36 @@ namespace FOP.Core.Services
 
                 foreach (DataRow row in dtNetPerformance.Rows)
                 {
-                    var rowdata = row.ItemArray;
-                    NetPerformanceBatchModel netPerformance = new NetPerformanceBatchModel
+                    try
                     {
+                        var rowdata = row.ItemArray;
+                        NetPerformanceBatchModel netPerformance = new NetPerformanceBatchModel
+                        {
 
-                        EntityID = Convert.ToInt32(rowdata[0]),
-                        EntityName = rowdata[1] != DBNull.Value ? rowdata[1].ToString() : null,
-                        GroupName = rowdata[2] != DBNull.Value ? rowdata[2].ToString() : null,
-                        Benchmark = rowdata[3] != DBNull.Value ? rowdata[3].ToString() : null,
-                        PeriodBeginningMarketValue = rowdata[4] != DBNull.Value ? TruncateDecimal((decimal)Convert.ToDouble(rowdata[4], CultureInfo.InvariantCulture), 32, 18) : (decimal?)null,
-                        PeriodEndingMarketValue = rowdata[5] != DBNull.Value ? TruncateDecimal((decimal)Convert.ToDouble(rowdata[5], CultureInfo.InvariantCulture), 32, 18) : (decimal?)null,
-                        PeriodPerformance = rowdata[6] != DBNull.Value ? rowdata[6].ToString() : null,
-                        EntityPath = rowdata[7] != DBNull.Value ? rowdata[7].ToString() : null,
-                        UploadID = uploadID
-                    };
-                    netPerformanceBatch.Add(netPerformance);
-                    stream.Dispose();
-                    stream.Close();
+                            EntityID = Convert.ToInt32(rowdata[0]),
+                            EntityName = rowdata[1] != DBNull.Value ? rowdata[1].ToString() : null,
+                            GroupName = rowdata[2] != DBNull.Value ? rowdata[2].ToString() : null,
+                            Benchmark = rowdata[3] != DBNull.Value ? rowdata[3].ToString() : null,
+                            PeriodBeginningMarketValue = rowdata[4] != DBNull.Value ? rowdata[4].ToString() : null,
+                            //rowdata[4] != DBNull.Value ? TruncateDecimal((decimal)Convert.ToDouble(rowdata[4], CultureInfo.InvariantCulture), 32, 18) : (decimal?)null,
+                            PeriodEndingMarketValue = rowdata[5] != DBNull.Value ? rowdata[5].ToString() : null,
+                            //rowdata[5] != DBNull.Value ? TruncateDecimal((decimal)Convert.ToDouble(rowdata[5], CultureInfo.InvariantCulture), 32, 18) : (decimal?)null,
+                            PeriodPerformance = rowdata[6] != DBNull.Value ? rowdata[6].ToString() : null,
+                            EntityPath = rowdata[7] != DBNull.Value ? rowdata[7].ToString() : null,
+                            UploadID = uploadID
+                        };
+
+                        netPerformanceBatch.Add(netPerformance);
+                        stream.Dispose();
+                        stream.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        stream.Dispose();
+                        stream.Close();
+                        // Log exception
+                    }
+                   
                 }
                 return await _fileUploadRepository.AddNetPerformance(netPerformanceBatch);
             }

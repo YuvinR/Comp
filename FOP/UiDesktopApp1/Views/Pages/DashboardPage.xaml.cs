@@ -96,6 +96,14 @@ namespace UiDesktopApp1.Views.Pages
             SelectedYear = (int)ddYears.SelectedItem;
         }
 
+        private void RefreshPage()
+        {
+            SelectedFileNames = new List<string>();
+            lbFileList.ItemsSource = SelectedFileNames;
+            loader_grid.Visibility = Visibility.Hidden;
+            _ = updateAllFileStatus(1);
+        }
+
         private void Button_OpenFiles(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new()
@@ -171,6 +179,7 @@ namespace UiDesktopApp1.Views.Pages
                 {
                     updateFileUploadStatus("All Master", 2);
                     System.Windows.MessageBox.Show("Successfully uploaded", "Success", System.Windows.MessageBoxButton.OK, MessageBoxImage.Information);
+                    RefreshPage();
                 }
                 else
                 {

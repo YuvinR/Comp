@@ -11,7 +11,9 @@ namespace FOP.Core.Entities
     [Table("PortfolioAuditRegistrations", Schema = "dbo")]
     public class PortfolioAuditRegistrationsModel
     {
-        [Key] public int RegistrationID { get; set; } 
+        [Key] public int ID { get; set; }
+
+        public int RegistrationID { get; set; } 
 
         public bool? Active { get; set; } 
 

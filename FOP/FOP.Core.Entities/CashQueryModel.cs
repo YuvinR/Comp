@@ -11,7 +11,8 @@ namespace FOP.Core.Entities
     [Table("CashQuery", Schema = "dbo")]
     public class CashQueryModel
     {
-        [Key] public int RegistrationID { get; set; }
+        [Key] public int ID { get; set; }
+        public int RegistrationID { get; set; }
         public string ClientLastName { get; set; }
         public string RegistrationName { get; set; }
         public string RegistrationCode { get; set; }
